@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import UploadForm
 from .models import UploadImage
+# import random
 
 def index(request):
     params = {
@@ -8,6 +9,10 @@ def index(request):
         'upload_form': UploadForm(),
         'id': None,
     }
+    
+    # if (request.method == 'GET'):
+    #     form = UploadForm()
+    #     return render(request, 'upload_app/index.html', {'form': form})
     
     if (request.method == 'POST'):
         form = UploadForm(request.POST, request.FILES)
